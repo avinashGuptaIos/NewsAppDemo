@@ -11,7 +11,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    static func shared() -> AppDelegate {
+         DispatchQueue.main.sync {
+             let delegate = UIApplication.shared.delegate as! AppDelegate
+             return delegate
+         }
+     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
