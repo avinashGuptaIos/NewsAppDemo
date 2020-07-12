@@ -20,6 +20,9 @@ let POST_REQUEST = "POST"
 let PUT_REQUEST = "PUT"
 let DELETE_REQUEST = "DELETE"
 
+let API_KEY = "a8fabd9ff4234c82aad08eaaa4ea17a0"
+let pageSize = 5
+
 let SUCCESS_CODE = 1
 
 

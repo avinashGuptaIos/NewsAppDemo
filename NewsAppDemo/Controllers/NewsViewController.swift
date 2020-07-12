@@ -14,6 +14,12 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        ServiceManager.shared.methodType(requestType: GET_REQUEST, url: GET_NEWS(page: 1), params: nil, paramsData: nil, completion: { (response, responseData, statusCode) in
+            print("News response is \(response)")
+        }) { (response, statusCode) in
+            print("Something wrong happened \(response)")
+        }
     }
     
 

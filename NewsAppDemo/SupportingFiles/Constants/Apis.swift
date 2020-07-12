@@ -8,15 +8,6 @@
 
 import Foundation
 
-class CustomDate {
-   private var date: Date?
-    init() { date = Date() }
-    
-    func currentTimeStamp() -> String {
-        return "\(Int(date?.timeIntervalSince1970 ?? 0.0))"
-    }
-}
-
 //MARK: Singletons
 
 let Shared_CustomJsonEncoder = CustomJsonEncoder.shared.getSharedEncoder()
@@ -43,18 +34,28 @@ class CustomJsonDecoder {
 
 //MARK:- App APIS
 
-let BASE_URL = "https://api.snglty.com/"
+let BASE_URL = "https://newsapi.org/\(version)"
+let version = "v2"
+let GET_TopHeadlines = "/top-headlines"
 
-func GET_ROOM_LIST() -> String {
-    "v1/test/roomsList?timestamp=\(getCurrentTimeStamp())"
+func convertQueriedFormURLfromParams(param: [String:Any]) -> String{
+    var components = URLComponents()
+    components.queryItems = param.map {
+     URLQueryItem(name: $0, value: "\($1)")
+    }
+    guard let queryParams = components.url else { return "" }
+    
+    return "\(queryParams)"
 }
 
-func GET_LOCK_DETAILS(roomId: String) -> String {
-    "v1/test/lockDetails?roomId=\(roomId)&timestamp=\(getCurrentTimeStamp())" 
-}
 
-func getCurrentTimeStamp() -> String{
-    return CustomDate().currentTimeStamp()
+func GET_NEWS(page: Int) -> String {
+    let keysDict = [ "country" : "us",
+                     "category" : "technology",
+                     "apiKey" : API_KEY,
+                     "pageSize" : pageSize,
+                     "page" : page] as [String : Any]
+   return "\(GET_TopHeadlines)\(convertQueriedFormURLfromParams(param: keysDict))"
 }
 
 func START_LOADING_VIEW()  {
