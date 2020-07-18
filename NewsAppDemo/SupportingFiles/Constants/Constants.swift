@@ -9,6 +9,18 @@
 import Foundation
 import UIKit
 
+public class NameValueObject: NSObject
+{
+   public var name, value, objectType, valueUrlString: String?
+    
+   public init(_ name: String? = nil,_ value: String? = nil, _ objectType: String? = nil, _ valueUrlString: String? = nil) {
+        self.name = name
+        self.value = value
+        self.objectType = objectType
+        self.valueUrlString = valueUrlString
+    }
+    
+}
 
 //MARK: Others
 let APP_KEY_WINDOW = UIWindow.key

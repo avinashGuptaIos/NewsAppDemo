@@ -30,7 +30,7 @@ open class ServiceManager: NSObject {
     
     //MARK:- Methods
     
-    func methodType(requestType: String,  url: String, params: NSDictionary?, paramsData: Data?,  completion: completionBlock?, failure: failureBlock?)
+    func methodType(requestType: String,  url: String, params: NSDictionary? = nil, paramsData: Data? = nil,  completion: completionBlock?, failure: failureBlock?)
     {
         let urlWithBaseUrl = "\(BASE_URL)\(url)"
         let completeURL = urlWithBaseUrl.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
