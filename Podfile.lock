@@ -1,22 +1,26 @@
 PODS:
+  - Localize-Swift (2.0.0)
   - PullToRefreshKit (0.8.8)
   - SDWebImage (5.8.0):
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
 
 DEPENDENCIES:
+  - Localize-Swift (~> 2.0)
   - PullToRefreshKit
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
+    - Localize-Swift
     - PullToRefreshKit
     - SDWebImage
 
 SPEC CHECKSUMS:
+  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
 
-PODFILE CHECKSUM: ecbcf22ab2f625827131f1b54d41c00d0d7d0337
+PODFILE CHECKSUM: eb4e6331f5f188a0162c4d7c6c5a48172d42ffb3
 
 COCOAPODS: 1.9.1

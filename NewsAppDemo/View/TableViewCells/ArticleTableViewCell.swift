@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Localize_Swift
 
 class ArticleTableViewCell: UITableViewCell {
 
@@ -48,13 +49,13 @@ class ArticleTableViewCell: UITableViewCell {
         for (n, (headingLabel,descriptionLabel)) in zip(headingLabels, descriptionLabels).enumerated() {
             switch (n+1) {
             case 1:
-                headingLabel.text = "Title"
+                headingLabel.text = "Title".localized()
                 descriptionLabel.text = article.title
                 case 2:
-                headingLabel.text = "Author"
+                headingLabel.text = "Author".localized()
                 descriptionLabel.text = article.author
                 case 3:
-                headingLabel.text = "Description"
+                headingLabel.text = "Description".localized()
                 descriptionLabel.text = article.description
             default:
                 headingLabel.text = nil

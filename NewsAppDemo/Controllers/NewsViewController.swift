@@ -8,6 +8,7 @@
 
 import UIKit
 import PullToRefreshKit
+import Localize_Swift
 
 class NewsViewController: UIViewController {
     
@@ -123,14 +124,6 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate{
         cell.setUpCell(article: newsArray[indexPath.row])
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
 }
 
 //MARK: Right Bar button Action
@@ -139,13 +132,13 @@ extension NewsViewController
     @objc override public func firstButtonAction(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
-//            selectedState = .chartViewState
+            Localize.setCurrentLanguage("fr")
         }else
         {
-//            selectedState = .defaultState
+            Localize.resetCurrentLanguageToDefault()
         }
         addRightButtonsWith(fisrtButtonDefaultTitle: "French", fisrtButtonSelectedTitle: "English",fisrtButtonSelected: sender.isSelected, target: self)
-
-//        reloadUiBasedOnSelectedState()
+        tableViewx.reloadData()
+        self.title = "Todays News".localized()
     }
 }

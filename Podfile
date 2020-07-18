@@ -8,4 +8,5 @@ target 'NewsAppDemo' do
   # Pods for NewsAppDemo
   pod 'PullToRefreshKit', :inhibit_warnings => true
   pod 'SDWebImage', '~> 5.0'
+  pod 'Localize-Swift', '~> 2.0'
 end

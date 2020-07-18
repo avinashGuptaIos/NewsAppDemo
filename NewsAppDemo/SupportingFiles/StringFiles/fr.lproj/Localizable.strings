@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Sample
+
+  Created by Roy Marmelstein on 05/08/2015.
+  Copyright (c) 2015 Roy Marmelstein. All rights reserved.
+*/
+
+"Title" = "Titre";
+"Author" = "Auteure";
+"Description" = "La description";
+"Todays News" = "Actualités du jour";
+
+
+
