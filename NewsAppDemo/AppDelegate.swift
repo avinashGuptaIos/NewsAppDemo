@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setUpInternetConnectionSettings()
         return true
     }
 
@@ -40,3 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate{
+    //MARK: SET_UP_FOR_Internet_Connection
+           
+       func setUpInternetConnectionSettings() {
+           
+           let reachability = try! Reachability()
+           reachability.whenReachable = { reachability in
+               NotificationCenter.default.post(name: NSNotification.Name.INTERNET_CONNECTION, object: nil)
+           }
+           reachability.whenUnreachable = { _ in
+               SHOW_TOAST("No internet connection")
+           }
+           
+           do {
+               try reachability.startNotifier()
+           } catch {
+               print("Unable to start notifier")
+           }
+       }
+}

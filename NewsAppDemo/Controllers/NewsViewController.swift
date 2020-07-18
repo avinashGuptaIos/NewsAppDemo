@@ -68,7 +68,7 @@ class NewsViewController: UIViewController {
                     self?.tableViewx.hideNoDataLabel()
                     self?.newsArray.append(contentsOf: news)
                 }else if self?.newsArray.count == 0 && news.count == 0 {
-                     self?.tableViewx.showNoDataLabel(withText: "No data to show")
+                    self?.tableViewx.showNoDataLabel(withText: "No data to show")
                 }
                 self?.tableViewx.switchRefreshFooter(to: .normal)
             }
@@ -96,8 +96,8 @@ class NewsViewController: UIViewController {
     {
         newsViewModel.getAllArticles(noAggregationCountCallback: { [weak self] in
             DispatchQueue.main.async {
-            self?.tableViewx.switchRefreshHeader(to: .normal(.success, 0.5))
-            self?.tableViewx.showNoDataLabel(withText: "No data to show")
+                self?.tableViewx.switchRefreshHeader(to: .normal(.success, 0.5))
+                self?.tableViewx.showNoDataLabel(withText: "No data to show")
             }
         }, startIndex: page, currentListCount: newsArray.count) { [weak self] in
             //noMoreDataCallback
@@ -115,11 +115,11 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController: UITableViewDataSource, UITableViewDelegate{
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.reuseIdentifier(), for: indexPath) as! ArticleTableViewCell
         cell.setUpCell(article: newsArray[indexPath.row])
         return cell

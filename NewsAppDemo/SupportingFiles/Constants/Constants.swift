@@ -33,9 +33,9 @@ let PUT_REQUEST = "PUT"
 let DELETE_REQUEST = "DELETE"
 
 let API_KEY = "a8fabd9ff4234c82aad08eaaa4ea17a0"
-let pageSize = 20
+let pageSize = 5
 
-let SUCCESS_CODE = 1
+let SUCCESS_CODE = 200
 
 
 let LOADING_VIEW_TAG = 123456789
