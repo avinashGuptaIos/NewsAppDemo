@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  NewsAppDemo
+
+*/
+
+"Title" = "Title";
+"Author" = "Author";
+"Description" = "Description";
+"Todays News" = "Todays News";
