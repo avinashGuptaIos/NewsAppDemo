@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE96C66E24C1F1EF0053CA73 /* LogsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96C66A24C1F1EE0053CA73 /* LogsTableViewCell.swift */; };
-		AE96C66F24C1F1EF0053CA73 /* LogsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE96C66B24C1F1EE0053CA73 /* LogsTableViewCell.xib */; };
-		AE96C67024C1F1EF0053CA73 /* TableViewInsideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96C66C24C1F1EE0053CA73 /* TableViewInsideTableViewCell.swift */; };
-		AE96C67124C1F1EF0053CA73 /* TableViewInsideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE96C66D24C1F1EE0053CA73 /* TableViewInsideTableViewCell.xib */; };
+		AE96C67024C1F1EF0053CA73 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96C66C24C1F1EE0053CA73 /* ArticleTableViewCell.swift */; };
+		AE96C67124C1F1EF0053CA73 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE96C66D24C1F1EE0053CA73 /* ArticleTableViewCell.xib */; };
 		AE96C67324C288850053CA73 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96C67224C288850053CA73 /* NewsViewModel.swift */; };
 		AEED5EBC24BA069000603431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEED5EBB24BA069000603431 /* AppDelegate.swift */; };
 		AEED5EBE24BA069000603431 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEED5EBD24BA069000603431 /* SceneDelegate.swift */; };
@@ -41,10 +39,8 @@
 		16AE8DF2613158B97CA836E6 /* Pods_NewsAppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsAppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A375BBCF5B42993F95F2984 /* Pods-NewsAppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppDemo.debug.xcconfig"; path = "Target Support Files/Pods-NewsAppDemo/Pods-NewsAppDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		650B7914A6BD4DFBD228D3F2 /* Pods-NewsAppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppDemo.release.xcconfig"; path = "Target Support Files/Pods-NewsAppDemo/Pods-NewsAppDemo.release.xcconfig"; sourceTree = "<group>"; };
-		AE96C66A24C1F1EE0053CA73 /* LogsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsTableViewCell.swift; sourceTree = "<group>"; };
-		AE96C66B24C1F1EE0053CA73 /* LogsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogsTableViewCell.xib; sourceTree = "<group>"; };
-		AE96C66C24C1F1EE0053CA73 /* TableViewInsideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInsideTableViewCell.swift; sourceTree = "<group>"; };
-		AE96C66D24C1F1EE0053CA73 /* TableViewInsideTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewInsideTableViewCell.xib; sourceTree = "<group>"; };
+		AE96C66C24C1F1EE0053CA73 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		AE96C66D24C1F1EE0053CA73 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		AE96C67224C288850053CA73 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		AEED5EB824BA069000603431 /* NewsAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEED5EBB24BA069000603431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,10 +205,8 @@
 		AEED5EFA24BBF9BA00603431 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				AE96C66A24C1F1EE0053CA73 /* LogsTableViewCell.swift */,
-				AE96C66B24C1F1EE0053CA73 /* LogsTableViewCell.xib */,
-				AE96C66C24C1F1EE0053CA73 /* TableViewInsideTableViewCell.swift */,
-				AE96C66D24C1F1EE0053CA73 /* TableViewInsideTableViewCell.xib */,
+				AE96C66C24C1F1EE0053CA73 /* ArticleTableViewCell.swift */,
+				AE96C66D24C1F1EE0053CA73 /* ArticleTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -296,9 +290,8 @@
 			files = (
 				AEED5EC824BA069400603431 /* LaunchScreen.storyboard in Resources */,
 				AEED5EC524BA069400603431 /* Assets.xcassets in Resources */,
-				AE96C66F24C1F1EF0053CA73 /* LogsTableViewCell.xib in Resources */,
 				AEED5EC324BA069000603431 /* Main.storyboard in Resources */,
-				AE96C67124C1F1EF0053CA73 /* TableViewInsideTableViewCell.xib in Resources */,
+				AE96C67124C1F1EF0053CA73 /* ArticleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,13 +354,12 @@
 				AEED5EBE24BA069000603431 /* SceneDelegate.swift in Sources */,
 				AEED5EF324BAE7A900603431 /* AllExtensions.swift in Sources */,
 				AEED5ED624BAE66200603431 /* ServiceManager.swift in Sources */,
-				AE96C66E24C1F1EF0053CA73 /* LogsTableViewCell.swift in Sources */,
 				AEED5EF024BAE7A900603431 /* Box.swift in Sources */,
 				AEED5EDD24BAE71700603431 /* ToastView.swift in Sources */,
 				AEED5EE924BAE77600603431 /* Fonts.swift in Sources */,
 				AEED5EE824BAE77600603431 /* Apis.swift in Sources */,
 				AEED5EE624BAE77600603431 /* Globals.swift in Sources */,
-				AE96C67024C1F1EF0053CA73 /* TableViewInsideTableViewCell.swift in Sources */,
+				AE96C67024C1F1EF0053CA73 /* ArticleTableViewCell.swift in Sources */,
 				AE96C67324C288850053CA73 /* NewsViewModel.swift in Sources */,
 				AEED5EF724BAE9FE00603431 /* NewsViewController.swift in Sources */,
 				AEED5EF924BBF76400603431 /* Model.swift in Sources */,

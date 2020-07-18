@@ -31,6 +31,7 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Todays News"
+        addRightButtonsWith(fisrtButtonDefaultTitle: "French", fisrtButtonSelectedTitle: "English", target: self)
         setupTableView()
         getAllNews(page: page)
     }
@@ -48,15 +49,16 @@ class NewsViewController: UIViewController {
     
     
     fileprivate func setupTableView() {
-        tableViewx.register(UINib(nibName: TableViewInsideTableViewCell.reuseIdentifier(), bundle: nil), forCellReuseIdentifier: TableViewInsideTableViewCell.reuseIdentifier())
+        tableViewx.register(UINib(nibName: ArticleTableViewCell.reuseIdentifier(), bundle: nil), forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier())
         tableViewx.dataSource = self
         tableViewx.delegate = self
         tableViewx.rowHeight = UITableView.automaticDimension
         tableViewx.estimatedRowHeight = 200
         newsViewModel.news.bind { [weak self] (news) in
             DispatchQueue.main.async {
-                if self?.newsArray.count == 0
+                if self?.page == 0
                 {
+                    self?.newsArray.removeAll()
                     self?.tableViewx.switchRefreshHeader(to: .normal(.success, 0.5))
                 }
                 
@@ -73,7 +75,6 @@ class NewsViewController: UIViewController {
         
         tableViewx?.configRefreshHeader(container: self, action: { [weak self] in
             self?.page = 0
-            self?.newsArray.removeAll()
             self?.getAllNews(page: self?.page ?? 0)
         })
         
@@ -87,7 +88,6 @@ class NewsViewController: UIViewController {
     override func gotInternetConnectivity() {
         super.gotInternetConnectivity()
         page = 0
-        newsArray.removeAll()
         getAllNews(page: page)
     }
     
@@ -119,7 +119,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewInsideTableViewCell.reuseIdentifier(), for: indexPath) as! TableViewInsideTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.reuseIdentifier(), for: indexPath) as! ArticleTableViewCell
         cell.setUpCell(article: newsArray[indexPath.row])
         return cell
     }
@@ -133,3 +133,19 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
+//MARK: Right Bar button Action
+extension NewsViewController
+{
+    @objc override public func firstButtonAction(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected{
+//            selectedState = .chartViewState
+        }else
+        {
+//            selectedState = .defaultState
+        }
+        addRightButtonsWith(fisrtButtonDefaultTitle: "French", fisrtButtonSelectedTitle: "English",fisrtButtonSelected: sender.isSelected, target: self)
+
+//        reloadUiBasedOnSelectedState()
+    }
+}

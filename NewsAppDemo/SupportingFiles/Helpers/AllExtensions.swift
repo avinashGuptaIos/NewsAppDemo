@@ -190,6 +190,31 @@ extension UIViewController {
        @objc func gotInternetConnectivity() {
            SHOW_TOAST("Connection established")
        }
+    
+    func addRightButtonsWith(fisrtButtonDefaultTitle: String?, fisrtButtonSelectedTitle: String?, fisrtButtonSelected: Bool = false, target: Any?)
+    {
+        navigationItem.rightBarButtonItems = nil
+        
+        let button1 = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 45))
+        button1.setTitle(fisrtButtonDefaultTitle, for: .normal)
+        button1.setTitle(fisrtButtonSelectedTitle, for: .selected)
+        button1.setTitleColor(UIColor.systemGreen, for: .normal)
+        button1.setTitleColor(UIColor.systemGreen, for: .selected)
+        
+        button1.addTarget(target, action: #selector(firstButtonAction(sender:)), for: .touchUpInside)
+        
+        button1.isSelected = fisrtButtonSelected
+        
+        let stackView = UIStackView(arrangedSubviews: [button1])
+        stackView.frame = CGRect(x: 0, y: 0, width: 100, height: 45)
+        stackView.axis = .horizontal
+        stackView.spacing = 13.0
+        navigationItem.rightBarButtonItems = [ UIBarButtonItem(customView: stackView)]
+    }
+    
+    @objc open func firstButtonAction(sender: UIButton) {
+    }
+         
 }
 
 //MARK: Extention for Array
