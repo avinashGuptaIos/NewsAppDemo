@@ -42,24 +42,6 @@ class LogsTableViewCell: UITableViewCell {
         label1.text = heading
         label2.text = ":"
         label3.text = value
-        
-        if value == "Success" || value == "Fail"
-        {
-//            label3.textColor = value == "FAIL" ? .red : FSRGBA(106, 216, 167, 1.0)
-        }else
-        {
-            label3.textColor = .lightGray
-        }
+        label3.textColor = .black
     }
-//    func messageDetailFileInfo(fileObj:detailObj){
-//
-//        label1.text = "    " + fileObj.name.capitalizingFirstLetter()
-//        label1.textColor = ColorConstants.generalBlackColor
-//        label2.text = ":"
-//        label3.text = fileObj.value
-//        label3.textColor = ColorConstants.generalBlackColor
-//        label3.font = RobotoFont.medium(with: 14)
-//        label1.font = RobotoFont.regular(with: 14)
-//        self.fs_cornerRadius = 10.0
-//    }
 }

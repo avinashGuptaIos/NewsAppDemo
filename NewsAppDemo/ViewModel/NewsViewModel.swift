@@ -9,17 +9,57 @@
 import Foundation
 
 class NewsViewModel{
-    
+    private var aggregationCount = 0
     var news: Box<[Article]> = Box([])
     
-    func getNews() {
-        
-        ServiceManager.shared.methodType(requestType: GET_REQUEST, url: GET_NEWS(page: 1), completion: { (response, responseData, statusCode) in
-            print("News response is \(response)")
-        }) { (response, statusCode) in
-            print("Something wrong happened \(response)")
+    func getAllArticles(noAggregationCountCallback: @escaping () -> (), startIndex: Int , currentListCount: Int, noMoreDataCallback: @escaping () -> ()) {
+        if startIndex == 0 {
+            getNewsFromServer(page: startIndex, noAggregationCountCallback: noAggregationCountCallback)
+        } else {
+            if aggregationCount == 0 {
+                noAggregationCountCallback()
+            }
+            else if currentListCount <= aggregationCount
+            {
+                getNewsFromServer(page: startIndex, noAggregationCountCallback: noAggregationCountCallback)
+            }
+            else{
+                noMoreDataCallback()
+            }
         }
     }
+    
+    
+   private func getNewsFromServer(page: Int, noAggregationCountCallback: @escaping () -> ()) {
+        START_LOADING_VIEW()
+        ServiceManager.shared.methodType(requestType: GET_REQUEST, url: GET_NEWS(page: page), completion: { [weak self] (response, responseData, statusCode) in
+            STOP_LOADING_VIEW()
+            if let newsListData = responseData, statusCode == 200{
+                let newsListResponse = try? Shared_CustomJsonDecoder.decode(NewsResponse.self, from: newsListData)
+                if let totalCount = newsListResponse?.totalResults, totalCount == 0 {
+                    noAggregationCountCallback()
+                }
+                else
+                {
+                self?.sendArticlesToViewController(newsResponse: newsListResponse)
+                }
+            }
+        }) { [weak self] (failure, statusCode) in
+            STOP_LOADING_VIEW()
+            print("Error happened \(failure.debugDescription)")
+            self?.sendArticlesToViewController(newsResponse: nil)
+        }
+    }
+    
+    
+    
+    private func sendArticlesToViewController(newsResponse: NewsResponse?) {
+        guard let newsResponsex = newsResponse else { news.value = [];
+            return }
+        aggregationCount = newsResponsex.totalResults ?? 0
+        news.value = newsResponsex.articles ?? []
+    }
+    
     
 //    //MARK: Get messages in small intervals
 //    static func getMesagesFrom_Pred(needFreshCall: Bool, startIndex: Int, screenTitle: String ,predicate: NSPredicate, isAscending: Bool, currentList: [PersonalSpace.PersonalTableModel], aggregationCount: Int, noAggregationCountCallback: @escaping () -> (), noDataCallback: @escaping ( _ tableList: [PersonalSpace.PersonalTableModel]?) -> (), dbDataCallback: @escaping (_ tableList: [PersonalSpace.PersonalTableModel],_ msgList: [MyMessages], _ isThereNoMoreData: Bool) -> (), newPageCallback: @escaping ( _ tableList: [PersonalSpace.PersonalTableModel]?) -> ())

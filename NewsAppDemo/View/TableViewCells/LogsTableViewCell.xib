@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,24 +14,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LogsTableViewCell" id="KGk-i7-Jjw" customClass="LogsTableViewCell" customModule="APPSTORE_Vault_Direct" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LogsTableViewCell" id="KGk-i7-Jjw" customClass="LogsTableViewCell" customModule="NewsAppDemo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaC-bV-cWc">
-                        <rect key="frame" x="15" y="15" width="290" height="16.5"/>
+                        <rect key="frame" x="8" y="8" width="304" height="28"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need to give text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wt-l3-w33">
-                                <rect key="frame" x="0.0" y="0.0" width="77" height="16.5"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <color key="textColor" red="0.30980294940000003" green="0.3097975254" blue="0.30980423089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="0.0" y="0.0" width="77" height="28"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59z-35-qZT">
-                                <rect key="frame" x="77" y="0.0" width="20" height="16.5"/>
+                                <rect key="frame" x="77" y="0.0" width="20" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="SgW-K2-LFg"/>
                                 </constraints>
@@ -43,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need to give text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uq-Tg-5c1">
-                                <rect key="frame" x="97" y="0.0" width="193" height="16.5"/>
+                                <rect key="frame" x="97" y="0.0" width="207" height="28"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -52,19 +49,20 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="CaC-bV-cWc" secondAttribute="trailing" constant="15" id="DtS-ZS-cpA"/>
-                    <constraint firstItem="CaC-bV-cWc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Ftu-3k-kHc"/>
-                    <constraint firstItem="CaC-bV-cWc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="PJg-7a-tLu"/>
+                    <constraint firstAttribute="trailing" secondItem="CaC-bV-cWc" secondAttribute="trailing" constant="8" id="DtS-ZS-cpA"/>
+                    <constraint firstItem="CaC-bV-cWc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ftu-3k-kHc"/>
+                    <constraint firstItem="CaC-bV-cWc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="PJg-7a-tLu"/>
                     <constraint firstItem="1Wt-l3-w33" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.24" id="inA-2I-Fq7"/>
-                    <constraint firstAttribute="bottom" secondItem="CaC-bV-cWc" secondAttribute="bottom" constant="12" id="vmf-B5-9Va"/>
+                    <constraint firstAttribute="bottom" secondItem="CaC-bV-cWc" secondAttribute="bottom" constant="8" id="vmf-B5-9Va"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="label1" destination="1Wt-l3-w33" id="6Sh-U4-cRF"/>
-                <outlet property="label2" destination="59z-35-qZT" id="ju3-9N-EuV"/>
-                <outlet property="label3" destination="4Uq-Tg-5c1" id="NoS-nC-hme"/>
+                <outlet property="label1" destination="1Wt-l3-w33" id="AAn-1r-nrj"/>
+                <outlet property="label2" destination="59z-35-qZT" id="eUR-d5-2kC"/>
+                <outlet property="label3" destination="4Uq-Tg-5c1" id="6lm-c6-g62"/>
             </connections>
+            <point key="canvasLocation" x="132" y="144"/>
         </tableViewCell>
     </objects>
 </document>

@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TableViewInsideTableViewCell: UITableViewCell {
 
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var tableViewx: UITableView!
-    var tableData = [NameValueObject]()
+    private var tableData = [NameValueObject]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,22 +31,20 @@ class TableViewInsideTableViewCell: UITableViewCell {
         return String(describing: self)
     }
     
-    func setUpCell(userEvent: Article)
+    func setUpCell(article: Article)
     {
-//        DateFormatterHelper.dateFormat = CoreModuleStringConstants.dateFormatter.registrationDateFormat
-//        let updatedDate = DateFormatterHelper.date(from: userEvent.generatedAt ?? DateFormatterHelper.string(from: Date()))
-//        timeLabel.text = CoreModule.Helpers.genericTimeFormate(updatedDate!, messageDetailScreen: false)
-//
-//        tableData = [NameValueObject("Status", userEvent.status?.capitalized),
-//                     NameValueObject("Device", userEvent.deviceId),
-//                     NameValueObject("IP Address", userEvent.ipAddress),
-//                     NameValueObject("Location", "\(userEvent.city ?? ""), \(userEvent.country ?? "")")]
-//
-//        tableViewx.register(cellType: LogsTableViewCell.self, bundle: Bundle(identifier: CoreModuleStringConstants.BundleIds.EventsModuleIdentifier))
-//        tableViewx.isScrollEnabled = false
-//        tableViewx.dataSource = self
-//        tableViewx.delegate = self
+        tableViewx.register(UINib(nibName: LogsTableViewCell.reuseIdentifier(), bundle: nil), forCellReuseIdentifier: LogsTableViewCell.reuseIdentifier())
+        tableViewx.isScrollEnabled = true
+        tableViewx.dataSource = self
+        tableViewx.delegate = self
 //        tableViewx.contentOffset = CGPoint(x: 0, y: 40)
+
+        tableData = [NameValueObject("Title", article.title),
+                     NameValueObject("Author", article.author),
+                     NameValueObject("Description", article.description)]
+        if let imageUrl = article.urlToImage {
+            newsImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "news"))
+        }
     }
     
     override func prepareForReuse() {
@@ -65,9 +64,9 @@ extension TableViewInsideTableViewCell: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(with: LogsTableViewCell.self, for: indexPath) 
-        cell.setUpCell(heading: tableData[indexPath.row].name, value:  tableData[indexPath.row].value)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: LogsTableViewCell.reuseIdentifier(), for: indexPath) as! LogsTableViewCell
+        cell.setUpCell(heading: tableData[indexPath.row].name, value: tableData[indexPath.row].value)
+        return cell 
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

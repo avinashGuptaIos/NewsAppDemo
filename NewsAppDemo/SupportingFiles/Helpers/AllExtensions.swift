@@ -136,6 +136,42 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: [], metrics: nil, views: viewsDictionary))
     }
     
+    func showNoDataLabel(withText text: String?) {
+            hideNoDataLabel()
+            layoutIfNeeded()
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 20))
+            noDataLabel.text = text
+            noDataLabel.textAlignment = .center
+        noDataLabel.font = UIFont.systemFont(ofSize: 16)
+            noDataLabel.textColor = LIGHT_GRAY_COLOR
+            noDataLabel.sizeToFit()
+            noDataLabel.tag = NO_DATA_LABEL_TAG
+            if (self is UITableView) {
+                let tableView = self as? UITableView
+                tableView?.tableHeaderView = noDataLabel
+                var frame: CGRect? = tableView?.tableHeaderView?.frame
+                frame?.size.height = tableView?.frame.size.height ?? 0.0
+                tableView?.tableHeaderView?.frame = frame ?? CGRect.zero
+                tableView?.reloadData()
+            } else {
+                noDataLabel.center = center
+                var frame: CGRect = noDataLabel.frame
+                frame.origin.y = self.frame.size.height / 2 - 10
+                noDataLabel.frame = frame
+                addSubview(noDataLabel)
+                bringSubviewToFront(noDataLabel)
+            }
+        }
+        
+        func hideNoDataLabel() {
+            if (self is UITableView) {
+                let tableView = self as? UITableView
+    //            tableView?.tableHeaderView = UIView()
+                tableView?.tableHeaderView = nil
+            } else {
+                viewWithTag(NO_DATA_LABEL_TAG)?.removeFromSuperview()
+            }
+        }
 }
 
 //MARK: UIViewController Extensions
